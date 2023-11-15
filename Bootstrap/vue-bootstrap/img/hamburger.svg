@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.9.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24.8 19.7" style="enable-background:new 0 0 24.8 19.7;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;fill-opacity:1.000000e-02;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:2;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:square;}
+	.st3{fill:none;stroke:#131313;stroke-width:2;stroke-linecap:square;}
+	.st4{fill:none;stroke:#1B1B1B;stroke-width:2;}
+	.st5{fill:none;stroke:#131313;stroke-width:2;}
+	.st6{fill:#1B1B1B;}
+	.st7{fill-rule:evenodd;clip-rule:evenodd;fill:#1B1B1B;}
+	.st8{fill:#FFFFFF;}
+</style>
+<g id="icons_sprite">
+	<rect id="Rectangle-Copy-16" x="-17.7" y="80.8" class="st0" width="24" height="24"/>
+	<rect id="Rectangle-Copy-20" x="30.3" y="80.8" class="st0" width="24" height="24"/>
+	<rect id="Rectangle-Copy-18" x="-41.7" y="80.8" class="st0" width="24" height="24"/>
+	<rect id="Rectangle-Copy-21" x="6.3" y="80.8" class="st0" width="24" height="24"/>
+	<rect id="Rectangle-Copy-19" x="-65.7" y="80.8" class="st0" width="24" height="24"/>
+	<polygon id="Rectangle" class="st0" points="-66.5,5.4 -17.7,32.8 -17.7,56.8 -41.7,56.8 	"/>
+	<polygon id="Rectangle-Copy" class="st0" points="-17.7,32.8 0,-1.8 6.3,56.8 -17.7,56.8 	"/>
+	<rect id="Rectangle-Copy-5" x="6.3" y="56.8" class="st0" width="24" height="24"/>
+	<rect id="Rectangle-Copy-13" x="-41.7" y="56.8" class="st0" width="24" height="24"/>
+	<g id="Group-3" transform="translate(96.000000, 24.000000)">
+		<rect id="Rectangle-Copy-7" x="-65.7" y="32.8" class="st0" width="24" height="24"/>
+		<g id="Cart-Button" transform="translate(1.000000, 1.000000)">
+			<polyline id="Path" class="st1" points="-65.7,32.8 -63.2,35.8 -63.2,44.8 -64.7,48.4 -43.7,48.4 			"/>
+			<polyline id="Path_00000183951932159236195630000009207837222816007560_" class="st1" points="-62.9,35.5 -45.5,35.5 -48.5,44.7 
+				-62.9,44.7 			"/>
+			<circle id="Oval" class="st2" cx="-62.9" cy="52.9" r="1.8"/>
+			<circle id="Oval_00000063628242181487665280000003590606298521818009_" class="st2" cx="-46.4" cy="52.9" r="1.8"/>
+		</g>
+	</g>
+	<rect id="Rectangle-Copy-15" x="-17.7" y="56.8" class="st0" width="24" height="24"/>
+	<polyline id="Path_00000023964686918370751450000003738274930533899398_" class="st3" points="-25.7,66.8 -29.7,70.8 -33.7,66.8 	
+		"/>
+	<polyline id="Path-Copy" class="st3" points="-1.7,70.8 -5.7,66.8 -9.7,70.8 	"/>
+	<circle id="Knob---Left" class="st4" cx="-124.9" cy="18.7" r="7"/>
+	<rect id="Rectangle-Copy-17" x="-59.7" y="-20.9" class="st0" width="24" height="24"/>
+	<polygon id="Rectangle-Copy-3" class="st0" points="24,-1.8 54.3,32.8 54.3,56.8 30.3,56.8 	"/>
+	<polygon id="Rectangle-Copy-2" class="st0" points="0,-1.8 24,-1.8 30.3,56.8 6.3,56.8 	"/>
+	<g id="Group" transform="translate(0.000000, 24.000000)">
+		<rect id="Rectangle-Copy-4" x="-65.7" y="32.8" class="st0" width="24" height="24"/>
+		<g id="Search" transform="translate(2.000000, 2.000000)">
+			<line id="Path_00000183224999118813459030000004036512158803329718_" class="st3" x1="-45.7" y1="52.8" x2="-51.7" y2="46.8"/>
+			<circle id="Oval_00000071527605332640621480000011442106425652750236_" class="st3" cx="-57.7" cy="40.8" r="8"/>
+		</g>
+	</g>
+	<g id="Cart-Button_00000018233497749957579280000010435299617349790395_" transform="translate(1.000000, 1.000000)">
+		<polyline id="Path_00000031925166924337378880000007106382820101943191_" class="st5" points="-90.5,5.4 -88,8.4 -88,17.4 
+			-89.5,21 -68.5,21 		"/>
+		<polyline id="Path_00000129203583481584019350000017110733055860360069_" class="st5" points="-88.2,8.1 -70.8,8.1 -73.3,17.3 
+			-87.7,17.3 		"/>
+		<circle id="Oval_00000168086707303927259460000011587913554001394859_" class="st3" cx="-87.7" cy="25.5" r="1.8"/>
+		<circle id="Oval_00000048500791828687766800000009964719183235141046_" class="st3" cx="-71.2" cy="25.5" r="1.8"/>
+	</g>
+	<path id="Combined-Shape" class="st6" d="M23,16.2c0.6,0,1,0.4,1,1s-0.4,1-1,1H1c-0.6,0-1-0.4-1-1s0.4-1,1-1H23z M23,9.2
+		c0.6,0,1,0.4,1,1s-0.4,1-1,1H1c-0.6,0-1-0.4-1-1s0.4-1,1-1H23z M23,2.2c0.6,0,1,0.4,1,1s-0.4,1-1,1H1c-0.6,0-1-0.4-1-1s0.4-1,1-1
+		H23z"/>
+	<polyline id="Arrow" class="st3" points="-21.7,40.8 -29.7,48.8 -37.7,40.8 	"/>
+	<polyline id="Arrow-Copy" class="st3" points="2.3,48.8 -5.7,40.8 -13.7,48.8 	"/>
+	<g id="Add-to-Cart-Button" transform="translate(97.000000, 1.000000)">
+		<polyline id="Path_00000122700280432914334990000011317989699172205490_" class="st5" points="-65.7,32.8 -63.2,35.8 -63.2,44.8 
+			-64.7,48.4 -43.7,48.4 		"/>
+		<polyline id="Path_00000101099278102691497970000000299840181683827358_" class="st5" points="-62.9,35.5 -45.5,35.5 -48.5,44.7 
+			-62.9,44.7 		"/>
+		<circle id="Oval_00000019674137502310721540000008377051986840036766_" class="st3" cx="-62.9" cy="52.9" r="1.8"/>
+		<circle id="Oval_00000128485059065754921810000008513248915000830617_" class="st3" cx="-46.4" cy="52.9" r="1.8"/>
+		
+			<rect id="Rectangle_00000154421102453423746050000001461361578295153557_" x="-55.6" y="37.4" class="st7" width="1.8" height="5.5"/>
+		<polygon id="Rectangle_00000084526612071138153210000001093289403542490041_" class="st7" points="-51.9,39.2 -51.9,41 -57.4,41 
+			-57.4,39.2 		"/>
+	</g>
+	<g id="Group-2" transform="translate(3.000000, 51.000000)">
+		<path id="Combined-Shape_00000057862371498481587210000006036595233337332887_" class="st8" d="M-48.4,33.1c0.4,0.4,0.4,1,0,1.4
+			l-7.1,7.1l7.1,7.1c0.4,0.4,0.4,1,0,1.4s-1,0.4-1.4,0l-7.1-7.1l-7.1,7.1c-0.4,0.4-1,0.4-1.4,0s-0.4-1,0-1.4l7.1-7.1l-7.1-7.1
+			c-0.4-0.4-0.4-1,0-1.4c0.4-0.4,1-0.4,1.4,0l7.1,7.1l7.1-7.1C-49.4,32.7-48.8,32.7-48.4,33.1z"/>
+	</g>
+</g>
+</svg>
