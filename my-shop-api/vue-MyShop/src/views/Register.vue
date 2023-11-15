@@ -1,5 +1,4 @@
 <template>
-  
     <body>
       <div class="login-page">
         <div class="form">
@@ -10,26 +9,66 @@
             </div>
           </div>
           <form class="login-form">
-            <input type="text" placeholder="username" />
-            <input type="password" placeholder="password" />
-            <button>register</button>
+            <input id= "email" type="email" placeholder="email" required/>
+            <input id = "password" type="password" placeholder="password" min = "4" required/>
+            <input id= "fullname" class="input" type="text" placeholder="fullname" required/>
+            <button class="submit" v-on:click ="registerUser"> register</button>
+            <p id="error" class="error"></p>
             <p class="message">
               Do you already have an account?
                 <br>
               <RouterLink to="/login"> Connect to yours</RouterLink>
             </p>
-            
           </form>
         </div>
       </div>
     </body>
-  
 </template>
 
-<script></script>
+<!-- <script >
+
+</script> -->
+
+
+<script>
+import axios from 'axios';
+import { setAuthToken, authToken } from '../components/Token.js'; // Importe la fonction et la variable qui stocke le token
+
+setAuthToken()
+export default {
+  methods: {
+    registerUser() {
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+      const fullname = document.getElementById('fullname').value;
+
+      axios.post('http://localhost/api/users', {
+        email: email,
+        password: password,
+        fullName: fullname
+      }, 
+      {
+        headers: {
+          'Authorization': `Bearer ${authToken}` //authToken est importé du fichier token.js
+        }
+      })
+      .then(response => {
+        // Gérer la réponse de l'API si nécessaire
+      })
+      .catch(error => {
+        // Gérer l'erreur de l'API si nécessaire
+      });
+    }
+  }
+}
+
+</script>
+
+
+
+
 
 <style>
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 .login-page {
   width: 360px;
