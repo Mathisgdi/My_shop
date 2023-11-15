@@ -1,5 +1,5 @@
 <template>
-  <body>
+  
     <body>
       <div class="login-page">
         <div class="form">
@@ -14,14 +14,16 @@
             <input type="password" placeholder="password" />
             <button>login</button>
             <p class="message">
-              Not registered? <a href="#">Create an account</a>
+              <!-- Not registered? <a href="#">Create an account</a> -->
+              Not registered?
+              <RouterLink to="/register">  Create an account </RouterLink>
             </p>
+            
           </form>
         </div>
       </div>
     </body>
-  </body>
-  <RouterLink to="/login"></RouterLink>
+  
 </template>
 
 <script></script>
