@@ -14,7 +14,6 @@
             <input type="password" placeholder="password" />
             <button>login</button>
             <p class="message">
-              <!-- Not registered? <a href="#">Create an account</a> -->
               Not registered?
               <RouterLink to="/register">  Create an account </RouterLink>
             </p>
@@ -92,12 +91,4 @@
   max-width: 300px;
   margin: 0 auto;
 }
-
-/* body {
-  background-color: #328f8a;
-  background-image: linear-gradient(45deg, #328f8a, #08ac4b);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
 </style>
