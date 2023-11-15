@@ -1,14 +1,14 @@
 <template>
     <section>
-        page Home
-        <RouterLink to="/test"> test</RouterLink>
-
+        <p> test </p>
+        <RouterLink to="/"> Home</RouterLink>
     </section>
 </template>
 
 <script>
 
 </script>
+
 
 <style>
 
