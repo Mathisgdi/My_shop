@@ -35,7 +35,7 @@ export default{
     async mounted() {
     await this.fetchProduct;
   // Continuer avec d'autres actions
-},
+        },
     computed: { 
         ...mapActions(useProductStore,["fetchProduct"]), // Va importer les actions qui sont dans le store (ici on a que fetchPokemons)
         ...mapState(useProductStore,["getProduct","getStatus"]) // Va importer les states (getter) qui sont dans le store (ici on a que pokemons)

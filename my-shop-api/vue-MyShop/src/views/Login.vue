@@ -28,14 +28,7 @@
 
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
-header .header {
-  background-color: #fff;
-  height: 45px;
-}
-header a img {
-  width: 134px;
-  margin-top: 4px;
-}
+
 .login-page {
   width: 360px;
   padding: 8% 0 0;
