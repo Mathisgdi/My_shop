@@ -21,7 +21,7 @@ export const useUserStore = defineStore('user', {
   actions: {
     async fetchUser(){
       this.status = 'fetching'
-      this.user = await axios({
+      this.user = axios({
     url:'http://localhost/api/users' , 
       method : "get", 
       headers: {
@@ -30,7 +30,31 @@ export const useUserStore = defineStore('user', {
     }) // le await permet d'attendre que la requête soit terminée pour passer à la suite
       this.status = 'done'
   },
+// async fetchUser() {
+//     this.status = 'fetching';
+//     axios({
+//       url: 'http://localhost/api/users',
+//       method: 'get',
+//       headers: {
+//         'Authorization': `Bearer ${authToken}`
+//       }
+//     })
+//     .then(response => {
+//         const status = response.status;
+//         console.log(status)
+//         if (status == 200){ // Si le status est 200 alors ça veut dire que les informations rentré par l'utilisateur sont correctes 
+//           router.push('/test');
+//         }
+//     })
+//     .catch(error => {
+//       console.error(error);
+//       this.status = 'error';
+//     });
+  
 
 
+
+
+},
 }
-})
+)

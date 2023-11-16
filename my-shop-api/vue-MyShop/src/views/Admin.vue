@@ -87,8 +87,7 @@
 
 
     async mounted() {
-        await this.fetchProduct;
-        await this.fetchUser;
+        
       // Continuer avec d'autres actions
             },
         computed: { 
@@ -98,8 +97,6 @@
             // User
             ...mapActions(useUserStore,["fetchUser"]),
             ...mapState(useUserStore,["getUser","getStatus"]),
-
-
         },
 
 
@@ -108,11 +105,13 @@
         this.showingProducts = true;
         this.showingUsers = false;
         this.showingCategories = false;
+        this.fetchProduct();
       },
       showUsers() {
         this.showingProducts = false;
         this.showingUsers = true;
         this.showingCategories = false;
+        this.fetchUser();
       },
       showCategories() {
         this.showingProducts = false;
