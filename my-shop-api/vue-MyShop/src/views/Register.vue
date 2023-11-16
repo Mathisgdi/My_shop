@@ -8,11 +8,11 @@
               <p>Please enter your credentials to register.</p>
             </div>
           </div>
-          <form class="login-form">
-            <input id= "email" type="email" placeholder="email" required/>
-            <input id = "password" type="password" placeholder="password" min = "4" required/>
-            <input id= "fullname" class="input" type="text" placeholder="fullname" required/>
-            <button class="submit" v-on:click ="registerUser"> register</button>
+          <form id = "register-form" class="login-form" @submit.prevent="registerUser">
+            <input id= "email" type="text" placeholder="email" />
+            <input id = "password" type="password" placeholder="password" min = "4" />
+            <input id= "fullname" class="input" type="text" placeholder="fullname" />
+            <button class="submit"> register</button>
             <p id="error" class="error"></p>
             <p class="message">
               Do you already have an account?
@@ -25,24 +25,132 @@
     </body>
 </template>
 
-<!-- <script >
-
-</script> -->
+<!-- v-on:click ="registerUser" -->
 
 
 <script>
 import axios from 'axios';
 import { setAuthToken, authToken } from '../components/Token.js'; // Importe la fonction et la variable qui stocke le token
+import router from '../router'; //Importr les routes pour pouvoir rediriger l'utilisateur vers la page 'login' après l'inscription
 
 setAuthToken()
+
 export default {
-  methods: {
-    registerUser() {
-      const email = document.getElementById('email').value;
+    
+//   methods: {
+//     registerUser() {
+//       const email = document.getElementById('email').value;
+//       const password = document.getElementById('password').value;
+//       const fullname = document.getElementById('fullname').value;
+//       //Pour vérifier le mot de passe
+//       var numbers = /[0-9]/g;
+//       var lowerCaseLetters = /[a-zA-Z]/g;
+
+
+//     if (email && password && fullname)
+//     axios.post('http://localhost/api/users', {
+//         email: email,
+//         password: password,
+//         fullName: fullname
+//       }, 
+//       {
+//         headers: {
+//           'Authorization': `Bearer ${authToken}` //authToken est importé du fichier token.js
+//         }
+//       }
+//     )
+// }
+// }
+// }
+    //   .then(response => {
+    //     // Gérer la réponse de l'API si nécessaire
+    //   })
+    //   .catch(error => {
+    //     // Gérer l'erreur de l'API si nécessaire
+    //   });
+    
+
+    
+    // if (email == "" ){
+    //     document.querySelector(".error").innerHTML = "Email must not be empty"
+    // }
+    
+    // else if (!/@.*\..*/.test(email)) {
+    //     document.querySelector("#error").textContent = "Email is badly formatted";
+    //   }
+    
+    // else if (password.length >= 8){ 
+    //     document.querySelector(".error").innerHTML = "Password must be at least 8 characters long and contain at least a letter and a number"
+    //     if (password.match(lowerCaseLetters)){
+    //         if( password.match(numbers)  ){
+    //             document.querySelector(".error").innerHTML = ""
+    //         }
+    //     }
+    //     else{
+    //         document.querySelector(".error").innerHTML = "Password must be at least 8 characters long and contain at least a letter and a number"
+    //     }
+    // }
+    // else if (fullname == ""){
+    //     document.querySelector(".error").innerHTML = "Fullname must not be empty"
+    // }
+    
+
+
+// if (email == "") {
+//   document.querySelector(".error").innerHTML = "Email must not be empty";
+// } else if (!/@.*\..*/.test(email)) {
+//   document.querySelector("#error").textContent = "Email is badly formatted";
+// } else if (password.length < 8 || !lowerCaseLetters.test(password) || !numbers.test(password)) {
+//   document.querySelector(".error").innerHTML = "Password must be at least 8 characters long and contain at least a letter and a number";
+// } else if (fullname == "") {
+//   document.querySelector(".error").innerHTML = "Fullname must not be empty";
+// } else {
+//   // Tous les champs sont valides, faire la requête POST
+//   axios.post('http://localhost/api/users', {
+//         email: email,
+//         password: password,
+//         fullName: fullname
+//       }, 
+//       {
+//         headers: {
+//           'Authorization': `Bearer ${authToken}` //authToken est importé du fichier token.js
+//         }
+//       })
+  
+  
+// }
+    
+// }
+
+
+//   }
+// }
+methods: {
+  registerUser() {
+    const registerForm = document.getElementById('register-form');
+    registerForm.addEventListener('submit', event => {
+    const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       const fullname = document.getElementById('fullname').value;
 
-      axios.post('http://localhost/api/users', {
+      
+
+      if (email == "") {
+        document.querySelector(".error").innerHTML = "Email must not be empty";
+        event.preventDefault(); // Empêche la soumission du formulaire
+      } else if (!/@.*\..*/.test(email)) {
+        document.querySelector("#error").textContent = "Email is badly formatted";
+        event.preventDefault(); 
+      } else if (password.length < 4 ) {
+        document.querySelector(".error").innerHTML = "Password must be at least 4 characters long";
+        event.preventDefault(); 
+      } else if (fullname == "") {
+        document.querySelector(".error").innerHTML = "Fullname must not be empty";
+        event.preventDefault(); 
+      } 
+      
+      else {
+        axios.post('http://localhost/api/users', {
         email: email,
         password: password,
         fullName: fullname
@@ -51,16 +159,20 @@ export default {
         headers: {
           'Authorization': `Bearer ${authToken}` //authToken est importé du fichier token.js
         }
-      })
-      .then(response => {
-        // Gérer la réponse de l'API si nécessaire
-      })
-      .catch(error => {
-        // Gérer l'erreur de l'API si nécessaire
-      });
-    }
+      }
+      
+    )
+    .then(response => {
+  // Handle the response
+  router.push('/login'); // Redirige l'utilisateur vers la page de connexion
+    })
+      }
+    });
   }
 }
+}
+
+
 
 </script>
 
@@ -69,6 +181,9 @@ export default {
 
 
 <style>
+.error{
+    color: red;
+}
 
 .login-page {
   width: 360px;

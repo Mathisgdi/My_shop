@@ -3,8 +3,8 @@ import axios from 'axios';
 async function getAuthToken() {
     try {
       const response = await axios.post('http://localhost/authentication_token', {
-        email: 'matbdx3338@gmail.com',
-        password: 'math26711'
+        email: 'e@e.com',
+        password: '123'
       });
       const token = response.data.token;
       return token;
