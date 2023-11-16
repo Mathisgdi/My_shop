@@ -1,3 +1,5 @@
+index.html
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,27 +16,33 @@
           <a href="#"><img src="img/logo.png" alt="logo of the site"></a>
           <ul class = "liste_header">
               <li> <a href="#">HOME</a></li>
+              <!-- <li><a class="left_header" href="#">SHOP</a></li>
+              <li><a class="left_header" href="#">MAGAZINE</a></li> -->
           </ul>
       </div>
-
-      <div class="search">
-        <div class="loop_center">
-        <img class ="loop" src="img/Search.png" alt="Logo search">
-        </div>
-        <div class = "search_droite">
-            <input class="input_search"  type="text" placeholder="Recherche">
-        </div>
-    </div>
-
       <div class="nav_droite">
           <a class="cart" href="#"><img class ="cart" src="img/icons_cart.svg" alt="cart icon"></a>
           <p class = "login"><a href="#">LOGIN</a></p>
+          <!-- <div id="icons_head"></div> -->
       </div>
       </div>
       </nav>
+      <div class="search">
+          <div class="loop_center">
+          <img class ="loop" src="img/Search.png" alt="Logo search">
+          </div>
+          <div class = "search_droite">
+              <input class="input_search"  type="text" placeholder="Recherche">
+          </div>
+          <!-- <select class="best_match" name="best-match">
+              <option value="">Best match</option>
+              <option value="by increasing price">By increasing price</option>
+              <option value="decreasing prices">By decreasing price</option>
+          </select>  -->
+      </div>
   </header>
 
-    <div id="app">
+    <div id="app">  
 
     </div>
     <script type="module" src="/src/main.js"></script>

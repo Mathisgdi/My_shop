@@ -205,8 +205,8 @@ methods: {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background-color: #a2d2ff;
-  background-image: linear-gradient(45deg, #a2d2ff, #bde0fe);
+  background-color: #0077b6;
+  background-image: linear-gradient(45deg, #0077b6, #00b4d8);
   width: 100%;
   border: 0;
   padding: 15px;
@@ -222,7 +222,7 @@ methods: {
   font-size: 12px;
 }
 .form .message a {
-  color: #4caf50;
+  color: #0077b6;
   text-decoration: none;
 }
 
