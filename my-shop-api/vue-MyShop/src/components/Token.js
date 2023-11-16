@@ -22,9 +22,6 @@ async function setAuthToken() {
   return authToken;
 }
 
-// setAuthToken().then(token => {
-//     authToken = token; // Affiche le token d'authentification
-//   });
 
 // export { authToken };
 export { setAuthToken,authToken };

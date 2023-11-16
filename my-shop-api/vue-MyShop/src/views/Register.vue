@@ -8,9 +8,9 @@
               <p>Please enter your credentials to register.</p>
             </div>
           </div>
-          <form id = "register-form" class="login-form" @submit.prevent="registerUser">
+          <form id = "register-form" @submit.prevent="registerUser">
             <input id= "email" type="text" placeholder="email" />
-            <input id = "password" type="password" placeholder="password" min = "4" />
+            <input id = "password" type="password" placeholder="password" />
             <input id= "fullname" class="input" type="text" placeholder="fullname" />
             <button class="submit"> register</button>
             <p id="error" class="error"></p>
@@ -25,7 +25,6 @@
     </body>
 </template>
 
-<!-- v-on:click ="registerUser" -->
 
 
 <script>
@@ -94,8 +93,6 @@ export default {
     //     document.querySelector(".error").innerHTML = "Fullname must not be empty"
     // }
     
-
-
 // if (email == "") {
 //   document.querySelector(".error").innerHTML = "Email must not be empty";
 // } else if (!/@.*\..*/.test(email)) {
@@ -116,13 +113,8 @@ export default {
 //           'Authorization': `Bearer ${authToken}` //authToken est importé du fichier token.js
 //         }
 //       })
-  
-  
 // }
-    
 // }
-
-
 //   }
 // }
 methods: {
@@ -130,10 +122,8 @@ methods: {
     const registerForm = document.getElementById('register-form');
     registerForm.addEventListener('submit', event => {
     const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const fullname = document.getElementById('fullname').value;
-
-      
+    const password = document.getElementById('password').value;
+    const fullname = document.getElementById('fullname').value;
 
       if (email == "") {
         document.querySelector(".error").innerHTML = "Email must not be empty";
@@ -169,18 +159,14 @@ methods: {
       }
     });
   }
-}
-}
-
-
-
+}}
 </script>
 
 
-
-
-
 <style>
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
 .error{
     color: red;
 }

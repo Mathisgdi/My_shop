@@ -9,10 +9,12 @@
               <p>Please enter your credentials to login.</p>
             </div>
           </div>
-          <form class="login-form">
-            <input type="text" placeholder="username" />
-            <input type="password" placeholder="password" />
-            <button>login</button>
+          <form id = "login-form" >
+            <input id= "email" type="text" placeholder="email" />
+            <input id = "password" type="password" placeholder="password" />
+            <button class="submit" v-on:click="loginUser"> login </button>
+            <p id="error" class="error"></p>
+
             <p class="message">
               Not registered?
               <RouterLink to="/register">  Create an account </RouterLink>
@@ -25,7 +27,77 @@
   
 </template>
 
-<script></script>
+
+
+
+
+<script>
+import axios from 'axios';
+import { setAuthToken, authToken } from '../components/Token.js'; // Importe la fonction et la variable qui stocke le token
+import router from '../router'; //Importr les routes pour pouvoir rediriger l'utilisateur vers la page 'login' après l'inscription
+
+setAuthToken()
+
+export default {
+// methods: {
+//   loginUser() {
+//     const registerForm = document.getElementById('register-form');
+//     registerForm.addEventListener('submit', event => {
+//     const email = document.getElementById('email').value;
+//     const password = document.getElementById('password').value;
+//     console.log("test")
+//     const response = axios.post('http://localhost/authentication_token', {
+//         email: email,
+//         password: password,
+//       });
+//       const status = response.data.status;
+//       if (status == 200) {
+//         router.push('/test');
+//       }
+//     } 
+//     )
+//   }
+
+
+    
+//     }
+//   }
+
+  methods: {
+  loginUser() {
+    const loginForm = document.getElementById('login-form');
+
+    loginForm.addEventListener('submit', event => {
+      event.preventDefault();
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      axios.post('http://localhost/authentication_token', {
+        email: email,
+        password: password,
+      })
+      .then(response => {
+        const status = response.status;
+        console.log(status)
+        if (status == 200){ // Si le status est 200 alors ça veut dire que les informations rentré par l'utilisateur sont correctes 
+          router.push('/test');
+         }
+        }
+      )
+      .catch(error => {
+        if (error.response.status === 401) { // Si le status est 401 -> informations rentré par l'utilisateur sont incorrectes car le status 401 correspond à une erreur d'authentification
+          document.querySelector("#error").innerHTML = "The email or password is incorrect";
+        } else {
+          console.log(error);
+        }
+      });
+    });
+  }
+}
+}
+
+</script>
 
 <style>
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
