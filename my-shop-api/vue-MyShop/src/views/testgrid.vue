@@ -1,7 +1,7 @@
 <template>
     <div>
       <h1>Voici les noms de mes produits avec leur description:</h1>
-      <section v-if="getStatus == 'done' ">
+      <section v-if="getStatus == 'done' " class="grid">
         <Carte v-for="product in getProduct.data['hydra:member']" :key="product.id" :product="product" />
       </section>
       <section v-else>
@@ -28,3 +28,11 @@
     }
   };
   </script>
+
+  <style scoped>
+  .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+</style>
