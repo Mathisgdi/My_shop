@@ -30,9 +30,11 @@
   </script>
 
   <style scoped>
-  .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(375px,1fr));
+    padding-left: 5vh;
+    gap: 50px;
+    margin-top: 25px;
 }
 </style>
