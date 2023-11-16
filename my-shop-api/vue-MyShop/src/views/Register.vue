@@ -147,7 +147,7 @@ methods: {
       }, 
       {
         headers: {
-          'Authorization': `Bearer ${authToken}` //authToken est importé du fichier token.js
+          'Authorization': `Bearer ${authToken}` //authToken est importé du fichier token.js (qui génère le token automatiquement avec une requête POST)
         }
       }
       
