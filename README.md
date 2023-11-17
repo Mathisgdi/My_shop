@@ -16,7 +16,6 @@ To set up Myshop, follow these steps:
 
     ```bash
     git clone https://github.com/VinhEnzoNg/My-Shop-Api.git
-    cd myshop
     ```
 
 2. Follow the instructions in the Docker Readme.
@@ -31,20 +30,10 @@ To set up Myshop, follow these steps:
 
 ## Project Setup
 
-```sh
-npm install
-```
-
 ### Compile and Hot-Reload for Development
 
 ```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
 ```
 
 **Note**: In the `token` file, replace the email and password with the credentials of an admin (for example, the credentials you set in the Docker configuration).
