@@ -81,7 +81,7 @@ export default {
         const status = response.status;
         console.log(status)
         if (status == 200){ // Si le status est 200 alors ça veut dire que les informations rentré par l'utilisateur sont correctes 
-          router.push('/test');
+          router.push('/adminorusers'); //Redirige sur la page AdminOrUsers
          }
         }
       )
