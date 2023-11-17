@@ -1,6 +1,7 @@
 <template>
     <div>
       <h1>Admin Dashboard</h1>
+      <p class = "warning ">Appuyer sur [user] puis sur le bouton [categories] puis sur le bouton [product] pour afficher les produits</p>
       
       <div class = "button">
         <button class="button_unique" @click="showProducts">Products</button>
@@ -14,8 +15,9 @@
             <input id= "name" type="text" placeholder="name" />
             <input id = "description" type="text" placeholder="description" />
             <input id= "price" class="input" type="text" placeholder="price" />
-            <input id= "categories" class="input" type="text" placeholder="categories" />
+            <input id= "categories" class="input" type="text" placeholder="categories (sous format : /api/categories/{id de la catégorie}" />
             <p class="error"></p>
+            <p> Appuyer deux fois sur le bouton Create </p>
             <button class="submit"> Create</button>
             <button class = "discard" @click="discardForm" > Discard</button>
         </form>
@@ -45,7 +47,7 @@
         </table>
         </section>
         <section v-else> <!-- sinon on affiche un message de chargement -->
-            Appuyer sur user puis sur le bouton categories puis sur le bouton product pour afficher les produits
+            
         </section>
         
       </div>
@@ -247,6 +249,10 @@ setAuthToken()
   </script>
   
   <style scoped>
+  .warning{
+    text-align: center;
+    color: red;
+  }
   h1{
     text-align: center;
   }
