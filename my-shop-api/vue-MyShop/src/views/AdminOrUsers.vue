@@ -2,12 +2,12 @@
   <body>
     <div class="button-container">
       <!-- Premier bouton redirigeant vers "/testgrid.vue" -->
-      <router-link to="/testgrid.vue">
+      <router-link to="/testgrid">
         <button class="custom-button">Bouton 1</button>
       </router-link>
 
       <!-- Deuxième bouton redirigeant vers "/admin.vue" -->
-      <router-link to="/admin.vue">
+      <router-link to="/admin">
         <button class="custom-button">Bouton 2</button>
       </router-link>
     </div>

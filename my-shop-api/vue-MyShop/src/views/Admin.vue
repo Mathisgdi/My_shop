@@ -16,7 +16,7 @@
             <input id= "categories" class="input" type="text" placeholder="categories" />
             <p class="error"></p>
             <button class="submit"> Create</button>
-            <button class = "discard" @click="discartdForm = false" > Discard</button>
+            <button class = "discard" @click="discardForm" > Discard</button>
         </form>
       </div>
         <section v-if="getStatus == 'done' "> <!-- si mon status est done alors on affiche les éléments -->
@@ -96,12 +96,12 @@ setAuthToken()
         showingUsers: false,
         showingCategories: false,
         showCreateProduct: false,
-      newProduct: {
-        email: '',
-        password: '',
-        fullname: '',
-        categories: '',
-      }
+    //   newProduct: {
+    //     name: '',
+    //     description: '',
+    //     price: '',
+    //     categories: '',
+    //   }
       };
     },
 
@@ -125,13 +125,13 @@ setAuthToken()
         this.showingProducts = true;
         this.showingUsers = false;
         this.showingCategories = false;
-        this.fetchProduct();
+        this.fetchProduct;
       },
       showUsers() {
         this.showingProducts = false;
         this.showingUsers = true;
         this.showingCategories = false;
-        this.fetchUser();
+        this.fetchUser;
       },
       showCategories() {
         this.showingProducts = false;
@@ -143,8 +143,8 @@ setAuthToken()
     registerForm.addEventListener('submit', event => {
     const name = document.getElementById('name').value;
     const description = document.getElementById('description').value;
-    const price = document.getElementById('price').value;
-    const categories = document.getElementById('categories').value;
+    const price = parseInt(document.getElementById('price').value);
+    const categories = document.getElementById('categories').value.split(',');
 
       if (name == "") {
         document.querySelector(".error").innerHTML = "Name must not be empty";

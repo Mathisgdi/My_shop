@@ -6,6 +6,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Admin from '../views/Admin.vue'
 import testgrid from '../views/testgrid.vue'
+import AdminOrUsers from '../views/AdminOrUsers.vue'
 
 
 

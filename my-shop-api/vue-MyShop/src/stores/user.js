@@ -22,7 +22,7 @@ export const useUserStore = defineStore('user', {
     async fetchUser(){
       this.status = 'fetching'
       this.user = axios({
-    url:'http://localhost/api/users' , 
+      url:'http://localhost/api/users' , 
       method : "get", 
       headers: {
         'Authorization': `Bearer ${authToken}` //authToken est importé du fichier token.js (qui génère le token automatiquement avec une requête POST)
