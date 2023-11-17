@@ -1,15 +1,32 @@
-Faire npm install pour installer tous les modules nécessaeires au bon fonctionnement du projet.
-installer axios avec la commande `npm install axios`
-Npm run dev pour lancer le serveur.
+# Project Myshop
 
-Prerequisites :
+## Prerequisites
 
-Docker Desktop
-Postman
+Before starting the Myshop project, make sure you have the following prerequisites installed on your system:
 
-Instalation :
+- Docker Desktop
+- Postman
+- Node.js
 
-Node.js
-Vue.js
-Axios
+## Installation
 
+To set up Myshop, follow these steps:
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/VinhEnzoNg/My-Shop-Api.git
+    cd myshop
+    ```
+
+2. Follow the instructions in the Docker Readme.
+
+3. **Dependencies**: Install the required Node.js packages. Run the following command in your `package.json` directory:
+
+    ```bash
+    npm install
+    ```
+
+4. Follow the instructions in the Vue-MyShop Readme.
+
+Now your Myshop project is set up and ready to use. Explore the project and follow the provided Readme files for Docker and Vue-MyShop for more details.
