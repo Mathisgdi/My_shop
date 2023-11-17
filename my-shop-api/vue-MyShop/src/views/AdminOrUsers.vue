@@ -2,7 +2,7 @@
   <body>
     <div class="button-container">
       <!-- Premier bouton redirigeant vers "/testgrid.vue" -->
-      <router-link to="/Home">
+      <router-link to="/">
         <button>Product page </button>
       </router-link>
 
