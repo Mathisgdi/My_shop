@@ -13,7 +13,7 @@
   <script>
   import { mapActions, mapState } from "pinia";
   import { useProductStore } from "../stores/product";
-  import Carte from "./Carte.vue";
+  import Carte from "../components/Carte.vue";
   
   export default {
     components: {
