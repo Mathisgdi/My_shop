@@ -1,6 +1,7 @@
 <template>
     <div>
       <h1>Admin Dashboard</h1>
+      
       <div class = "button">
         <button class="button_unique" @click="showProducts">Products</button>
         <button class="button_unique" @click="showUsers">Users</button>
@@ -27,16 +28,18 @@
               <th>Description</th>
               <th>Price</th>
               <th>Categories</th>
+              <th>ID</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="product in getProduct.data['hydra:member']" :key="product.id">
+            <tr v-for="product in getProduct.data['hydra:member']" :key="product">
               <td>{{ product.name }}</td>
               <td>{{ product.description }}</td>
               <td>{{ product.price }}€</td>
               <td> {{ product.categories }}</td>
+                <td>{{ product.id }}</td>
                 <button class="button_unique" @click="editProduct(product)">Edit</button> <!-- Bouton Edit -->
-                <button class="button_unique" @click="deleteProduct(product)">Delete</button> <!-- Bouton Delete -->
+                <button class="button_unique" @click="deleteProduct(product.id)">Delete</button> <!-- Bouton Delete -->
             </tr>
           </tbody>
         </table>
@@ -48,6 +51,10 @@
       </div>
     
       <div v-if="showingUsers">
+        <!-- <div v-if="typeof users === 'object'"> -->
+        <!-- <div v-if="data && data['hydra:member']"> -->
+
+
         <!-- Afficher les utilisateurs ici -->
         <section v-if="getStatus == 'done' "> <!-- si mon status est done alors on affiche les éléments -->
             <table class = "tableau">
@@ -74,6 +81,7 @@
         <section v-else> <!-- sinon on affiche un message de chargement -->
             ...Loading
         </section>
+    
       </div>
       <div v-if="showingCategories">
         <!-- Afficher les catégories ici -->
@@ -82,10 +90,10 @@
   </template>
   
   <script>
+      import axios from 'axios';
     import { mapActions, mapState } from "pinia";
     import {useProductStore} from '../stores/product'
     import {useUserStore} from '../stores/user'
-    import axios from 'axios';
     import { setAuthToken, authToken } from '../components/Token.js';
 
 setAuthToken()
@@ -96,12 +104,7 @@ setAuthToken()
         showingUsers: false,
         showingCategories: false,
         showCreateProduct: false,
-    //   newProduct: {
-    //     name: '',
-    //     description: '',
-    //     price: '',
-    //     categories: '',
-    //   }
+
       };
     },
 
@@ -193,7 +196,12 @@ setAuthToken()
     editProduct(product) {
       // Logique pour éditer un produit
     },
-    deleteProduct(product) {
+    async deleteProduct(id) {
+        axios.delete(`http://localhost/api/products/${id}`, {
+  headers: {
+    'Authorization': `Bearer ${authToken}`
+  }
+})
       // Logique pour supprimer un produit
 
     },
