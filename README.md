@@ -29,4 +29,6 @@ To set up Myshop, follow these steps:
 
 4. Follow the instructions in the Vue-MyShop Readme.
 
+**Note**: In the `token` file, replace the email and password with the credentials of an admin (for example, the credentials you set in the Docker configuration).
+
 Now your Myshop project is set up and ready to use. Explore the project and follow the provided Readme files for Docker and Vue-MyShop for more details.
