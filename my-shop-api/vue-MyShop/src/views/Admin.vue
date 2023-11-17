@@ -45,7 +45,7 @@
         </table>
         </section>
         <section v-else> <!-- sinon on affiche un message de chargement -->
-            Appuyer sur user puis cliquer sur product pour afficher les produits
+            Appuyer sur user puis sur le bouton categories puis sur le bouton product pour afficher les produits
         </section>
         
       </div>
@@ -95,7 +95,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="categories in getCategories.data['hydra:member']" :key="user.id">
+            <tr v-for="categories in getCategories.data['hydra:member']" :key="categories.id">
               <td>{{ categories.name }}</td>
               <td>
                 <button class="button_unique" @click="editProduct(product)">Edit</button> <!-- Bouton Edit -->
@@ -118,7 +118,8 @@
     import { mapActions, mapState } from "pinia";
     import {useProductStore} from '../stores/product'
     import {useUserStore} from '../stores/user'
-    import {useCategoriesStore} from '../stores/categories'
+    import { useCategoriesStore } from '../stores/categories';
+
     import { setAuthToken, authToken } from '../components/Token.js';
 
 
@@ -147,29 +148,32 @@ setAuthToken()
             ...mapActions(useUserStore,["fetchUser"]),
             ...mapState(useUserStore,["getUser","getStatus"]),
             // Categories
-            ...mapActions(useCategoriesStore,["fetchCategories"]),
-            ...mapState(useCategoriesStore,["getCategories","getStatus"]),
+            ...mapActions(useCategoriesStore, ["fetchCategories"]),
+...mapState(useCategoriesStore, ["getCategories", "getStatus"]),
+
         },
 
 
     methods: {
-      showProducts() {
+      async showProducts() {
         this.showingProducts = true;
         this.showingUsers = false;
         this.showingCategories = false;
-        this.fetchProduct;
+        await this.fetchProduct;
       },
-      showUsers() {
+      async showUsers() {
         this.showingProducts = false;
         this.showingUsers = true;
         this.showingCategories = false;
-        this.fetchUser;
+        await this.fetchUser;
       },
-      showCategories() {
-        this.showingProducts = false;
-        this.showingUsers = false;
-        this.showingCategories = true;
-      },
+      async showCategories() {
+  this.showingProducts = false;
+  this.showingUsers = false;
+  this.showingCategories = true;
+  await this.fetchCategories; // Utilisez "await" ici pour attendre que la fonction soit terminée
+},
+
       createProduct() {
     const registerForm = document.getElementById('register-form');
     registerForm.addEventListener('submit', event => {
@@ -230,6 +234,7 @@ setAuthToken()
   headers: {
     'Authorization': `Bearer ${authToken}`
   }
+  
 })
       // Logique pour supprimer un produit
 
