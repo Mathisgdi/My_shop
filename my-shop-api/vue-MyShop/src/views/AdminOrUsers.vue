@@ -2,13 +2,13 @@
   <body>
     <div class="button-container">
       <!-- Premier bouton redirigeant vers "/testgrid.vue" -->
-      <router-link to="/testgrid">
-        <button class="custom-button">Bouton 1</button>
+      <router-link to="/Home">
+        <button>Product page </button>
       </router-link>
 
       <!-- Deuxième bouton redirigeant vers "/admin.vue" -->
       <router-link to="/admin">
-        <button class="custom-button">Bouton 2</button>
+        <button style="--c:#E95A49">Admin</button>
       </router-link>
     </div>
   </body>
@@ -19,22 +19,47 @@ export default {};
 </script>
 
 <style scoped>
+button {
+  --c:  #229091; /* the color*/
+  
+  box-shadow: 0 0 0 .1em inset var(--c); 
+  --_g: linear-gradient(var(--c) 0 0) no-repeat;
+  background: 
+    var(--_g) calc(var(--_p,0%) - 100%) 0%,
+    var(--_g) calc(200% - var(--_p,0%)) 0%,
+    var(--_g) calc(var(--_p,0%) - 100%) 100%,
+    var(--_g) calc(200% - var(--_p,0%)) 100%;
+  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
+  outline-offset: .1em;
+  transition: background-size .4s, background-position 0s .4s;
+}
+button:hover {
+  --_p: 100%;
+  transition: background-position .4s, background-size 0s;
+}
+button:active {
+  box-shadow: 0 0 9e9q inset #0009; 
+  background-color: var(--c);
+  color: #fff;
+}
+
+
+
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   margin: 0;
+  display: grid;
+  place-content: center;
+  grid-auto-flow: column;
+  gap: 40px;
+  background: #ffffff;
 }
-
-.button-container {
-  text-align: center;
-}
-
-.custom-button {
-  padding: 10px 20px;
-  font-size: 16px;
+button {
+  font-family: system-ui, sans-serif;
+  font-size: 3.5rem;
   cursor: pointer;
-  margin: 5px;
+  padding: .1em .6em;
+  font-weight: bold;  
+  border: none;
 }
 </style>

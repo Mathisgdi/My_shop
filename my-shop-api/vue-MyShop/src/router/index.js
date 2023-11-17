@@ -39,11 +39,6 @@ const router = createRouter({
       component: Admin
     },
     {
-      path: '/testgrid',
-      name: 'testgrid',
-      component: testgrid
-    },
-    {
       path: '/adminorusers',
       name: 'adminorusers',
       component: AdminOrUsers
