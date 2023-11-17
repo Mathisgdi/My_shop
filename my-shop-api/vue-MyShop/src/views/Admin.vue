@@ -7,9 +7,18 @@
         <button class="button_unique" @click="showCategories">Categories</button>
       </div>
       <div v-if="showingProducts">
-        <div class="button" >
-        <button class="button_unique"  @click="createProduct()">Create new product</button> 
-        </div>
+        <button class="button" @click="showCreateProduct = true">Créer un nouveau produit</button>
+        <div v-if="showCreateProduct">
+        <form id = "register-form" @submit.prevent="createProduct">
+            <input id= "name" type="text" placeholder="name" />
+            <input id = "description" type="text" placeholder="description" />
+            <input id= "price" class="input" type="text" placeholder="price" />
+            <input id= "categories" class="input" type="text" placeholder="categories" />
+            <p class="error"></p>
+            <button class="submit"> Create</button>
+            <button class = "discard" @click="discartdForm = false" > Discard</button>
+        </form>
+      </div>
         <section v-if="getStatus == 'done' "> <!-- si mon status est done alors on affiche les éléments -->
             <table class = "tableau">
           <thead>
@@ -17,6 +26,7 @@
               <th>Name</th>
               <th>Description</th>
               <th>Price</th>
+              <th>Categories</th>
             </tr>
           </thead>
           <tbody>
@@ -24,10 +34,9 @@
               <td>{{ product.name }}</td>
               <td>{{ product.description }}</td>
               <td>{{ product.price }}€</td>
-              <td>
+              <td> {{ product.categories }}</td>
                 <button class="button_unique" @click="editProduct(product)">Edit</button> <!-- Bouton Edit -->
                 <button class="button_unique" @click="deleteProduct(product)">Delete</button> <!-- Bouton Delete -->
-              </td>
             </tr>
           </tbody>
         </table>
@@ -35,7 +44,9 @@
         <section v-else> <!-- sinon on affiche un message de chargement -->
             ...Loading
         </section>
+        
       </div>
+    
       <div v-if="showingUsers">
         <!-- Afficher les utilisateurs ici -->
         <section v-if="getStatus == 'done' "> <!-- si mon status est done alors on affiche les éléments -->
@@ -74,14 +85,23 @@
     import { mapActions, mapState } from "pinia";
     import {useProductStore} from '../stores/product'
     import {useUserStore} from '../stores/user'
+    import axios from 'axios';
+    import { setAuthToken, authToken } from '../components/Token.js';
 
-
+setAuthToken()
   export default {
     data() {
       return {
         showingProducts: false,
         showingUsers: false,
-        showingCategories: false
+        showingCategories: false,
+        showCreateProduct: false,
+      newProduct: {
+        email: '',
+        password: '',
+        fullname: '',
+        categories: '',
+      }
       };
     },
 
@@ -119,9 +139,58 @@
         this.showingCategories = true;
       },
       createProduct() {
-        // Logique pour créer un produit
-      },
-      editProduct(product) {
+    const registerForm = document.getElementById('register-form');
+    registerForm.addEventListener('submit', event => {
+    const name = document.getElementById('name').value;
+    const description = document.getElementById('description').value;
+    const price = document.getElementById('price').value;
+    const categories = document.getElementById('categories').value;
+
+      if (name == "") {
+        document.querySelector(".error").innerHTML = "Name must not be empty";
+        event.preventDefault(); // Empêche la soumission du formulaire
+      } 
+       else if (description == "" ) {
+        document.querySelector(".error").innerHTML = "Description must not be empty";
+        event.preventDefault(); 
+      } else if (price == "") {
+        document.querySelector(".error").innerHTML = "Price must not be empty";
+        event.preventDefault(); 
+      } 
+      else if (categories == "") {
+        document.querySelector(".error").innerHTML = "Categories must not be empty";
+        event.preventDefault(); 
+      }
+      
+      else {
+        axios.post('http://localhost/api/products', {
+        name: name,
+        description: description,
+        price: price,
+        categories: categories,
+        },
+       
+      {
+        headers: {
+          'Authorization': `Bearer ${authToken}` //authToken est importé du fichier token.js (qui génère le token automatiquement avec une requête POST)
+        }
+        // .then(response => {
+        //     // console.log(response.data);
+        //     showCreateProduct = false;
+        // }).catch(error => {
+        // console.log(error);
+        // })
+      }
+        )
+      }
+    })
+    },
+
+    discardForm() {
+      this.showCreateProduct = false;
+    },
+
+    editProduct(product) {
       // Logique pour éditer un produit
     },
     deleteProduct(product) {

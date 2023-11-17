@@ -24,7 +24,7 @@
       ...mapState(useProductStore, ["getProduct", "getStatus"])
     },
     mounted() {
-      this.fetchProduct();
+      this.fetchProduct;
     }
   };
   </script>
