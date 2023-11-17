@@ -45,7 +45,7 @@
         </table>
         </section>
         <section v-else> <!-- sinon on affiche un message de chargement -->
-            ...Loading
+            Appuyer sur user puis cliquer sur product pour afficher les produits
         </section>
         
       </div>
@@ -85,6 +85,30 @@
       </div>
       <div v-if="showingCategories">
         <!-- Afficher les catégories ici -->
+        <section v-if="getStatus == 'done' "> <!-- si mon status est done alors on affiche les éléments -->
+            <table class = "tableau">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Email</th>
+              <th>Fullname</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="categories in getCategories.data['hydra:member']" :key="user.id">
+              <td>{{ categories.name }}</td>
+              <td>
+                <button class="button_unique" @click="editProduct(product)">Edit</button> <!-- Bouton Edit -->
+                <button class="button_unique" @click="deleteProduct(product)">Delete</button> <!-- Bouton Delete -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        </section>
+        <section v-else> <!-- sinon on affiche un message de chargement -->
+            ...Loading
+        </section>
+
       </div>
     </div>
   </template>
@@ -94,7 +118,9 @@
     import { mapActions, mapState } from "pinia";
     import {useProductStore} from '../stores/product'
     import {useUserStore} from '../stores/user'
+    import {useCategoriesStore} from '../stores/categories'
     import { setAuthToken, authToken } from '../components/Token.js';
+
 
 setAuthToken()
   export default {
@@ -120,6 +146,9 @@ setAuthToken()
             // User
             ...mapActions(useUserStore,["fetchUser"]),
             ...mapState(useUserStore,["getUser","getStatus"]),
+            // Categories
+            ...mapActions(useCategoriesStore,["fetchCategories"]),
+            ...mapState(useCategoriesStore,["getCategories","getStatus"]),
         },
 
 

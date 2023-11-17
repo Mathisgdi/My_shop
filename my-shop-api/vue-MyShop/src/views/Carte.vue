@@ -2,7 +2,7 @@
   <div class="carte">
     <img
       class="fit-picture"
-      src="my-shop-api\vue-MyShop\img\Frame 14.png"
+      src="../../img/Frame 14.png"
       alt="The product image"
     />
     <h2>{{ product.name }}</h2>
@@ -29,6 +29,6 @@ export default {
   margin: 10px;
 }
 .fit-picture {
-  width: 50vh;
+  width: 25vh;
 }
 </style>
