@@ -1,7 +1,4 @@
-<template>
-    <!-- Votre template HTML ici -->
-  </template>
-  
+
   <script>
  import axios from 'axios';
 
@@ -32,6 +29,3 @@ async function setAuthToken() {
 export { setAuthToken,authToken };
   </script>
   
-  <style>
-  /* Vos styles CSS ici */
-  </style>

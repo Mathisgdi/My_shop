@@ -25,98 +25,15 @@
     </body>
 </template>
 
-
-
 <script>
 import axios from 'axios';
-import { setAuthToken, authToken } from '../components/Token.js'; // Importe la fonction et la variable qui stocke le token
+import { setAuthToken, authToken } from '../components/Token.vue'; // Importe la fonction et la variable qui stocke le token
 import router from '../router'; //Importr les routes pour pouvoir rediriger l'utilisateur vers la page 'login' après l'inscription
 
 setAuthToken()
 
 export default {
-    
-//   methods: {
-//     registerUser() {
-//       const email = document.getElementById('email').value;
-//       const password = document.getElementById('password').value;
-//       const fullname = document.getElementById('fullname').value;
-//       //Pour vérifier le mot de passe
-//       var numbers = /[0-9]/g;
-//       var lowerCaseLetters = /[a-zA-Z]/g;
-
-
-//     if (email && password && fullname)
-//     axios.post('http://localhost/api/users', {
-//         email: email,
-//         password: password,
-//         fullName: fullname
-//       }, 
-//       {
-//         headers: {
-//           'Authorization': `Bearer ${authToken}` //authToken est importé du fichier token.js
-//         }
-//       }
-//     )
-// }
-// }
-// }
-    //   .then(response => {
-    //     // Gérer la réponse de l'API si nécessaire
-    //   })
-    //   .catch(error => {
-    //     // Gérer l'erreur de l'API si nécessaire
-    //   });
-    
-
-    
-    // if (email == "" ){
-    //     document.querySelector(".error").innerHTML = "Email must not be empty"
-    // }
-    
-    // else if (!/@.*\..*/.test(email)) {
-    //     document.querySelector("#error").textContent = "Email is badly formatted";
-    //   }
-    
-    // else if (password.length >= 8){ 
-    //     document.querySelector(".error").innerHTML = "Password must be at least 8 characters long and contain at least a letter and a number"
-    //     if (password.match(lowerCaseLetters)){
-    //         if( password.match(numbers)  ){
-    //             document.querySelector(".error").innerHTML = ""
-    //         }
-    //     }
-    //     else{
-    //         document.querySelector(".error").innerHTML = "Password must be at least 8 characters long and contain at least a letter and a number"
-    //     }
-    // }
-    // else if (fullname == ""){
-    //     document.querySelector(".error").innerHTML = "Fullname must not be empty"
-    // }
-    
-// if (email == "") {
-//   document.querySelector(".error").innerHTML = "Email must not be empty";
-// } else if (!/@.*\..*/.test(email)) {
-//   document.querySelector("#error").textContent = "Email is badly formatted";
-// } else if (password.length < 8 || !lowerCaseLetters.test(password) || !numbers.test(password)) {
-//   document.querySelector(".error").innerHTML = "Password must be at least 8 characters long and contain at least a letter and a number";
-// } else if (fullname == "") {
-//   document.querySelector(".error").innerHTML = "Fullname must not be empty";
-// } else {
-//   // Tous les champs sont valides, faire la requête POST
-//   axios.post('http://localhost/api/users', {
-//         email: email,
-//         password: password,
-//         fullName: fullname
-//       }, 
-//       {
-//         headers: {
-//           'Authorization': `Bearer ${authToken}` //authToken est importé du fichier token.js
-//         }
-//       })
-// }
-// }
-//   }
-// }
+  
 methods: {
   registerUser() {
     const registerForm = document.getElementById('register-form');

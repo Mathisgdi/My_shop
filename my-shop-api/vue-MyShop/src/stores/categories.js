@@ -17,7 +17,6 @@ export const useCategoriesStore = defineStore('categories', {
      
   },
   
-  
   actions: {
     async fetchCategories() {
         this.status = 'fetching';

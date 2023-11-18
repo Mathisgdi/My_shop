@@ -1,11 +1,5 @@
 <template>
-          <div class="grid-container" v-if="getProduct.data && getProduct.data['hydra:member']" >
-
-        <!-- <div class="grid-container" v-if="getCategories.data && getCategories.data['hydra:member']" > -->
-
-          <!-- <div class="grid-container" v-if="getUser.data && getUser.data['hydra:member']" > -->
-
-
+  <div class="grid-container" v-if="getProduct.data && getProduct.data['hydra:member']" >
     <div>
       <h1>Admin Dashboard</h1>  
       <div class = "button">
@@ -27,7 +21,7 @@
             <button class = "discard" @click="discardForm" > Discard</button>
         </form>
       </div>
-        <section v-if="getStatus == 'done' "> <!-- si mon status est done alors on affiche les éléments -->
+        <section v-if="getStatus == 'done' "> 
             <table class = "tableau">
           <thead>
             <tr>
@@ -45,24 +39,19 @@
               <td>{{ product.price }}€</td>
               <td> {{ product.categories }}</td>
                 <td>{{ product.id }}</td>
-                <button class="button_unique" @click="editProduct(product)">Edit</button> <!-- Bouton Edit -->
-                <button class="button_unique" @click="deleteProduct(product.id)">Delete</button> <!-- Bouton Delete -->
+                <button class="button_unique" @click="editProduct(product)">Edit</button> 
+                <button class="button_unique" @click="deleteProduct(product.id)">Delete</button> 
             </tr>
           </tbody>
         </table>
         </section>
-        <section v-else> <!-- sinon on affiche un message de chargement -->
-            
+        <section v-else> 
+            ...Loading
         </section>
         
       </div>
     
       <div v-if="showingUsers">
-        <!-- <div v-if="typeof users === 'object'"> -->
-        <!-- <div v-if="data && data['hydra:member']"> -->
-
-
-        <!-- Afficher les utilisateurs ici -->
         <section v-if="getStatus == 'done' "> <!-- si mon status est done alors on affiche les éléments -->
             <table class = "tableau">
           <thead>
@@ -78,8 +67,8 @@
               <td>{{ user.email }}</td>
               <td>{{ user.fullName }}€</td>
               <td>
-                <button class="button_unique" @click="editProduct(product)">Edit</button> <!-- Bouton Edit -->
-                <button class="button_unique" @click="deleteProduct(product)">Delete</button> <!-- Bouton Delete -->
+                <button class="button_unique" @click="editProduct(product)">Edit</button> 
+                <button class="button_unique" @click="deleteProduct(product)">Delete</button> 
               </td>
             </tr>
           </tbody>
@@ -91,24 +80,20 @@
     
       </div>
       <div v-if="showingCategories">
-        <!-- Afficher les catégories ici -->
-        <section v-if="getStatus == 'done' "> <!-- si mon status est done alors on affiche les éléments -->
+        <section v-if="getStatus == 'done' "> 
             <table class = "tableau">
           <thead>
             <tr>
               <th>ID</th>
               <th>Name</th>
-
             </tr>
           </thead>
           <tbody>
             <tr v-for="categories in getCategories['hydra:member']" :key="categories.id">
               <td>{{ categories.id }}</td>
               <td>{{ categories.name }}</td>
-              
                 <button class="button_unique" @click="editProduct(product)">Edit</button> <!-- Bouton Edit -->
                 <button class="button_unique" @click="deleteProduct(product)">Delete</button> <!-- Bouton Delete -->
-              
             </tr>
           </tbody>
         </table>
@@ -116,12 +101,9 @@
         <section v-else> <!-- sinon on affiche un message de chargement -->
             ...Loading
         </section>
-
       </div>
     </div>
   </div>
-<!-- </div> -->
-<!-- </div> -->
   <div v-else > 
     chargement de la page...
   </div>
@@ -139,26 +121,6 @@
 
 setAuthToken()
   export default {
-    // data() {
-    //   return {
-    //     showingProducts: false,
-    //     showingUsers: false,
-    //     showingCategories: false,
-    //     showCreateProduct: false,
-
-    //   };
-    // },
-//     data() {
-//   return {
-//     showingProducts: false,
-//     showingUsers: false,
-//     showingCategories: false,
-//     showCreateProduct: false,
-//     productsFetched: false,
-//     usersFetched: false,
-//     categoriesFetched: false,
-//   };
-// },
 data() {
   return {
     showingProducts: false,
@@ -193,9 +155,7 @@ async mounted() {
             // Categories
             ...mapActions(useCategoriesStore, ["fetchCategories"]),
 ...mapState(useCategoriesStore, ["getCategories", "getStatus"]),
-
         },
-
     methods: {
       showProducts() {
     this.showingProducts = true;
@@ -235,7 +195,6 @@ async mounted() {
         document.querySelector(".error").innerHTML = "Categories must not be empty";
         event.preventDefault(); 
       }
-      
       else {
         axios.post('http://localhost/api/products', {
         name: name,
@@ -243,7 +202,6 @@ async mounted() {
         price: price,
         categories: categories,
         },
-       
       {
         headers: {
           'Authorization': `Bearer ${authToken}` //authToken est importé du fichier token.js (qui génère le token automatiquement avec une requête POST)
@@ -259,25 +217,21 @@ async mounted() {
     },
 
     editProduct(product) {
-      // Logique pour éditer un produit
+      
     },
     async deleteProduct(id) {
         axios.delete(`http://localhost/api/products/${id}`, {
   headers: {
     'Authorization': `Bearer ${authToken}`
   }
-  
-  
 })
 await this.fetchProduct();
-
     },
       
     }
   };
 
-
-  </script>
+</script>
   
   <style scoped>
   .warning{

@@ -1,12 +1,12 @@
 <template>
   <body>
     <div class="button-container">
-      <!-- Premier bouton redirigeant vers "/testgrid.vue" -->
+      <!--  bouton redirigeant vers "/" la page principal -->
       <router-link to="/">
         <button>Product page </button>
       </router-link>
 
-      <!-- Deuxième bouton redirigeant vers "/admin.vue" -->
+      <!-- Bouton redirigeant vers "/admin.vue" -->
       <router-link to="/admin">
         <button style="--c:#E95A49">Admin</button>
       </router-link>

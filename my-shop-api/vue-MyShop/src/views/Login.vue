@@ -33,35 +33,9 @@
 
 <script>
 import axios from 'axios';
-// import { setAuthToken, authToken } from '../components/Token.js'; // Importe la fonction et la variable qui stocke le token
-import router from '../router'; //Importr les routes pour pouvoir rediriger l'utilisateur vers la page 'login' après l'inscription
-
-// setAuthToken()
+import router from '../router'; //Importe les routes pour pouvoir rediriger l'utilisateur vers la page 'login' après l'inscription
 
 export default {
-// methods: {
-//   loginUser() {
-//     const registerForm = document.getElementById('register-form');
-//     registerForm.addEventListener('submit', event => {
-//     const email = document.getElementById('email').value;
-//     const password = document.getElementById('password').value;
-//     console.log("test")
-//     const response = axios.post('http://localhost/authentication_token', {
-//         email: email,
-//         password: password,
-//       });
-//       const status = response.data.status;
-//       if (status == 200) {
-//         router.push('/test');
-//       }
-//     } 
-//     )
-//   }
-
-
-    
-//     }
-//   }
 
   methods: {
   loginUser() {

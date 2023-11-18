@@ -16,7 +16,6 @@ export const useProductStore = defineStore('product', {
      
   },
   
-  
   actions: {
     async fetchProduct(){
       this.status = 'fetching'
