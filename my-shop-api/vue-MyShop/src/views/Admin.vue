@@ -1,8 +1,13 @@
 <template>
+          <div class="grid-container" v-if="getProduct.data && getProduct.data['hydra:member']" >
+
+        <!-- <div class="grid-container" v-if="getCategories.data && getCategories.data['hydra:member']" > -->
+
+          <!-- <div class="grid-container" v-if="getUser.data && getUser.data['hydra:member']" > -->
+
+
     <div>
-      <h1>Admin Dashboard</h1>
-      <p class = "warning ">Appuyer sur [user] puis sur le bouton [categories] puis sur le bouton [product] pour afficher les produits</p>
-      
+      <h1>Admin Dashboard</h1>  
       <div class = "button">
         <button class="button_unique" @click="showProducts">Products</button>
         <button class="button_unique" @click="showUsers">Users</button>
@@ -68,7 +73,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="user in getUser.data['hydra:member']" :key="user.id">
+            <tr v-for="user in getUser['hydra:member']" :key="user.id">
               <td>{{ user.id }}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.fullName }}€</td>
@@ -92,17 +97,18 @@
           <thead>
             <tr>
               <th>ID</th>
-              <th>Email</th>
-              <th>Fullname</th>
+              <th>Name</th>
+
             </tr>
           </thead>
           <tbody>
-            <tr v-for="categories in getCategories.data['hydra:member']" :key="categories.id">
+            <tr v-for="categories in getCategories['hydra:member']" :key="categories.id">
+              <td>{{ categories.id }}</td>
               <td>{{ categories.name }}</td>
-              <td>
+              
                 <button class="button_unique" @click="editProduct(product)">Edit</button> <!-- Bouton Edit -->
                 <button class="button_unique" @click="deleteProduct(product)">Delete</button> <!-- Bouton Delete -->
-              </td>
+              
             </tr>
           </tbody>
         </table>
@@ -113,6 +119,12 @@
 
       </div>
     </div>
+  </div>
+<!-- </div> -->
+<!-- </div> -->
+  <div v-else > 
+    chargement de la page...
+  </div>
   </template>
   
   <script>
@@ -122,26 +134,55 @@
     import {useUserStore} from '../stores/user'
     import { useCategoriesStore } from '../stores/categories';
 
-    import { setAuthToken, authToken } from '../components/Token.js';
+    import { setAuthToken, authToken } from '../components/Token.vue';
 
 
 setAuthToken()
   export default {
-    data() {
-      return {
-        showingProducts: false,
-        showingUsers: false,
-        showingCategories: false,
-        showCreateProduct: false,
+    // data() {
+    //   return {
+    //     showingProducts: false,
+    //     showingUsers: false,
+    //     showingCategories: false,
+    //     showCreateProduct: false,
 
-      };
-    },
+    //   };
+    // },
+//     data() {
+//   return {
+//     showingProducts: false,
+//     showingUsers: false,
+//     showingCategories: false,
+//     showCreateProduct: false,
+//     productsFetched: false,
+//     usersFetched: false,
+//     categoriesFetched: false,
+//   };
+// },
+data() {
+  return {
+    showingProducts: false,
+    showingUsers: false,
+    showingCategories: false,
+    showCreateProduct: false,
+    products: null,
+    users: null,
+    categories: null,
+  };
+},
 
 
-    async mounted() {
-        
-      // Continuer avec d'autres actions
-            },
+
+async mounted() {
+  await this.fetchProduct();
+  this.products = this.getProduct.data['hydra:member'];
+  
+  await this.fetchUser();
+  this.users = this.getUser.data['hydra:member'];
+  
+  await this.fetchCategories();
+  this.categories = this.getCategories.data['hydra:member'];
+},
         computed: { 
             // Product
             ...mapActions(useProductStore,["fetchProduct"]),
@@ -155,27 +196,22 @@ setAuthToken()
 
         },
 
-
     methods: {
-      async showProducts() {
-        this.showingProducts = true;
-        this.showingUsers = false;
-        this.showingCategories = false;
-        await this.fetchProduct;
-      },
-      async showUsers() {
-        this.showingProducts = false;
-        this.showingUsers = true;
-        this.showingCategories = false;
-        await this.fetchUser;
-      },
-      async showCategories() {
-  this.showingProducts = false;
-  this.showingUsers = false;
-  this.showingCategories = true;
-  await this.fetchCategories; // Utilisez "await" ici pour attendre que la fonction soit terminée
-},
-
+      showProducts() {
+    this.showingProducts = true;
+    this.showingUsers = false;
+    this.showingCategories = false;
+  },
+  showUsers() {
+    this.showingProducts = false;
+    this.showingUsers = true;
+    this.showingCategories = false;
+  },
+  showCategories() {
+    this.showingProducts = false;
+    this.showingUsers = false;
+    this.showingCategories = true;
+  },
       createProduct() {
     const registerForm = document.getElementById('register-form');
     registerForm.addEventListener('submit', event => {
@@ -212,12 +248,6 @@ setAuthToken()
         headers: {
           'Authorization': `Bearer ${authToken}` //authToken est importé du fichier token.js (qui génère le token automatiquement avec une requête POST)
         }
-        // .then(response => {
-        //     // console.log(response.data);
-        //     showCreateProduct = false;
-        // }).catch(error => {
-        // console.log(error);
-        // })
       }
         )
       }
@@ -237,8 +267,9 @@ setAuthToken()
     'Authorization': `Bearer ${authToken}`
   }
   
+  
 })
-      // Logique pour supprimer un produit
+await this.fetchProduct();
 
     },
       

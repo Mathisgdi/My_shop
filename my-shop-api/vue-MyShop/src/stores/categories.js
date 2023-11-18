@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import  axios  from  'axios'
-import { setAuthToken, authToken } from '../components/Token.js'; // Importe la fonction et la variable qui stocke le token
+import { setAuthToken, authToken } from '../components/Token.vue'; // Importe la fonction et la variable qui stocke le token
 
 setAuthToken()
 export const useCategoriesStore = defineStore('categories', {
